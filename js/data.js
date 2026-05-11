@@ -41,7 +41,7 @@ const RAW_ALBUMS = [
     {
         id: 'cherry-blossoms-are-blooming',
         title: 'Cherry Blossoms are Blooming',
-        year: 0,
+        year: 2018,
         cover: 'img/albums/cherryBlossomsAreBlooming.jpg',
         songs: [
             {title: 'Cherry blossoms are blooming ( instrumental )'},
@@ -55,7 +55,7 @@ const RAW_ALBUMS = [
     {
         id: 'girls-reform-manifest',
         title: 'Girls Reform Manifest',
-        year: 0,
+        year: 2021,
         cover: 'img/albums/girlsReformManifest.jpg',
         songs: [
             {title: 'SUNRISE 味噌SOUP', translation: 'SUNRISE MISO SOUP'},
@@ -69,6 +69,18 @@ const RAW_ALBUMS = [
             {title: '限界沼ライフ', translation: 'Genkai NUMA Life'},
             {title: 'Want to TIE - UP', translation: 'SUNRISE MISO SOUP'},
 
+        ],
+    },
+    {
+        id: 'crash-over',
+        title: 'CRASH OVER',
+        year: 2017,
+        cover: 'img/albums/crashover.jpg',
+        songs: [
+            {title: 'BABYLON'},
+            {title: 'CRASH OVER'},
+            {title: 'Envy'},
+            {title: "Sweetskiller"}
         ],
     },
     {
@@ -97,7 +109,7 @@ const RAW_ALBUMS = [
     {
         id: 'love-ranbu',
         title: 'LOVE♡乱舞',
-        year: 2025,
+        year: 2022,
         cover: 'img/albums/loveRanbu.jpg',
         songs: [
             {title: 'LOVE♡乱舞', translation: 'Love Ranbu'},
@@ -107,7 +119,7 @@ const RAW_ALBUMS = [
     {
         id: 'odo-cover',
         title: 'Odo (cover)',
-        year: 2025,
+        year: 2021,
         cover: 'img/albums/odo.jpg',
         songs: [
             {title: 'Odo (cover)'}
