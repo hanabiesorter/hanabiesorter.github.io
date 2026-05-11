@@ -36,10 +36,12 @@ let sort = null;
 let albumSort = "desc";
 
 const SINGLES = ALBUMS.filter((a) => a.single);
-const REGULAR_ALBUMS = ALBUMS.filter((a) => !a.single);
+const COVERS = ALBUMS.filter((a) => a.isCover);
+const REGULAR_ALBUMS = ALBUMS.filter((a) => !a.single && !a.isCover);
 const SINGLES_TILE_ID = "__singles__";
+const COVERS_TILE_ID = "__covers__";
 
-// Synthetic tile that bundles all singles. Always pinned to the end of the grid.
+// Synthetic tiles that bundle all singles / covers. Always pinned to the end of the grid.
 const SINGLES_TILE =
   SINGLES.length === 0
     ? null
@@ -49,10 +51,19 @@ const SINGLES_TILE =
         cover: "img/bandphoto.jpg",
         songs: SINGLES.flatMap((s) => s.songs),
       };
+const COVERS_TILE =
+  COVERS.length === 0
+    ? null
+    : {
+        id: COVERS_TILE_ID,
+        title: "Covers",
+        cover: "img/bandphoto.jpg",
+        songs: COVERS.flatMap((s) => s.songs),
+      };
 
 function gridEntries() {
   const albums = albumSort === "desc" ? [...REGULAR_ALBUMS].reverse() : REGULAR_ALBUMS;
-  return SINGLES_TILE ? [...albums, SINGLES_TILE] : [...albums];
+  return [...albums, SINGLES_TILE, COVERS_TILE].filter(Boolean);
 }
 
 function showPhase(name) {
@@ -190,6 +201,8 @@ function selectedAlbumIds() {
   for (const c of els.albumGrid.querySelectorAll('input[name="album"]:checked')) {
     if (c.value === SINGLES_TILE_ID) {
       for (const s of SINGLES) ids.add(s.id);
+    } else if (c.value === COVERS_TILE_ID) {
+      for (const s of COVERS) ids.add(s.id);
     } else {
       ids.add(c.value);
     }

@@ -9,20 +9,23 @@
 //            Duplicate titles across albums are fine; each instance is treated separately.
 //   single - (optional) true if this is a standalone single — gets bundled into the
 //            "Singles" tile on the album grid instead of getting its own tile.
+//   isCover - (optional) true if this is a cover of another artist's song — gets bundled
+//             into the "Covers" tile so they can be excluded as a group. Mutually
+//             exclusive with `single`.
 //
 // Albums are listed alphabetically by title in this file for easier maintenance.
 // At runtime they are sorted by year on export, so file order does not affect the UI.
 
 const RAW_ALBUMS = [
     {
-        id: 'believer-cover',
-        title: 'Believer (cover)',
+        id: 'believer',
+        title: 'Believer',
         year: 2023,
         cover: 'img/albums/believerCover.jpg',
         songs: [
-            {title: 'Believer (cover)'},
+            {title: 'Believer'},
         ],
-        single: true,
+        isCover: true,
     },
     {
         id: 'bucchigiri-tokyo',
@@ -117,14 +120,14 @@ const RAW_ALBUMS = [
         single: true,
     },
     {
-        id: 'odo-cover',
-        title: 'Odo (cover)',
+        id: 'odo',
+        title: 'Odo',
         year: 2021,
         cover: 'img/albums/odo.jpg',
         songs: [
-            {title: 'Odo (cover)'}
+            {title: 'Odo'}
         ],
-        single: true,
+        isCover: true,
     },
     {
         id: 'reborn-superstar',
