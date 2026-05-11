@@ -95,6 +95,16 @@ const RAW_ALBUMS = [
         single: true,
     },
     {
+        id: 'love-ranbu',
+        title: 'LOVE♡乱舞',
+        year: 2025,
+        cover: 'img/albums/loveRanbu.jpg',
+        songs: [
+            {title: 'LOVE♡乱舞', translation: 'Love Ranbu'},
+        ],
+        single: true,
+    },
+    {
         id: 'odo-cover',
         title: 'Odo (cover)',
         year: 2025,
