@@ -1,4 +1,4 @@
-import { ALBUMS, buildSongList } from "./data.js";
+import { ALBUMS, buildSongList } from "./songlist.js";
 import { SongSort } from "./sort.js";
 import * as htmlToImage from "./vendor/html-to-image.js";
 
@@ -35,9 +35,9 @@ const els = {
 let sort = null;
 let albumSort = "desc";
 
-const SINGLES = ALBUMS.filter((a) => a.single);
+const SINGLES = ALBUMS.filter((a) => a.isSingle);
 const COVERS = ALBUMS.filter((a) => a.isCover);
-const REGULAR_ALBUMS = ALBUMS.filter((a) => !a.single && !a.isCover);
+const REGULAR_ALBUMS = ALBUMS.filter((a) => !a.isSingle && !a.isCover);
 const SINGLES_TILE_ID = "__singles__";
 const COVERS_TILE_ID = "__covers__";
 
@@ -63,7 +63,11 @@ const COVERS_TILE =
 
 function gridEntries() {
   const albums = albumSort === "desc" ? [...REGULAR_ALBUMS].reverse() : REGULAR_ALBUMS;
-  return [...albums, SINGLES_TILE, COVERS_TILE].filter(Boolean);
+  return [
+    ...albums,
+    SINGLES_TILE,
+    COVERS_TILE,
+  ].filter(Boolean);
 }
 
 function showPhase(name) {
