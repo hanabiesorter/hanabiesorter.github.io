@@ -70,7 +70,7 @@ const RAW_ALBUMS = [
             {title: '我甘党', translation: 'We love sweets'},
             {title: 'L. C. G (2019mix)'},
             {title: '限界沼ライフ', translation: 'Genkai NUMA Life'},
-            {title: 'Want to TIE - UP', translation: 'SUNRISE MISO SOUP'},
+            {title: 'Want to TIE - UP'},
 
         ],
     },
