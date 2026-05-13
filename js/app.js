@@ -427,7 +427,7 @@ function setupResultsPhase() {
 
   els.rawTextBtn.addEventListener("click", () => {
     const ranked = sort.results();
-    els.rawText.value = ranked.map(({ rank, item }) => `${rank}. ${fullSongTitle(item)} — ${item.album.title}`).join("\n");
+    els.rawText.value = ranked.map(({ rank, item }) => `${rank}. ${fullSongTitle(item)}, ${item.album.title}`).join("\n");
     els.rawDialog.showModal();
   });
   els.copyBtn.addEventListener("click", async () => {

@@ -1,2 +1,5 @@
 .idea/
 node_modules/
+css/editor.css
+editor.html
+js/editor.js

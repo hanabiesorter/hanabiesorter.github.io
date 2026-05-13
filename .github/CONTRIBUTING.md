@@ -22,37 +22,6 @@ The site uses ES modules, which require an HTTP server (won't work via `file://`
 
 `npm test` will catch most data-shape regressions before you push: missing required fields on an album entry, non-unique album ids, malformed song objects, broken `buildSongList` dedup, sort-engine misbehavior, etc. If you change anything in `js/albumsAndSongs.js` or `js/sort.js`, run it.
 
-## Verifying your data
-
-A quick sanity check from the command line:
-
-```bash
-node --input-type=module -e "
-import { ALBUMS, buildSongList } from './js/albumsAndSongs.js';
-console.log(ALBUMS.length, 'albums');
-console.log(ALBUMS.reduce((n, a) => n + a.songs.length, 0), 'songs total');
-for (const a of ALBUMS) console.log(a.year ?? '----', '-', a.title, '(' + a.songs.length + ' songs)' + (a.single ? ' [single]' : ''));
-"
-```
-
-The output should look similar to this:
-
-```
-9 albums
-41 songs total
-0 - Cherry Blossoms are Blooming (6 songs)
-0 - Girls Reform Manifest (10 songs)
-2023 - Believer (cover) (1 songs) [single]
-2023 - Reborn Superstar! (10 songs)
-2024 - Bucchigiri Tokyo (6 songs)
-2025 - Karu Garu Everyday!! (1 songs) [single]
-2025 - Odo (cover) (1 songs) [single]
-2025 - Tasty Survivor (1 songs) [single]
-2026 - HOT TOPIC (5 songs)
-```
-
-If the script throws an error, you have a syntax issue in `albumsAndSongs.js`, usually a missing comma or unclosed quote.
-
 ## Image sizes
 
 When adding new cover art or photos, target these dimensions. The site already displays at much smaller sizes, so larger sources just waste bandwidth.
