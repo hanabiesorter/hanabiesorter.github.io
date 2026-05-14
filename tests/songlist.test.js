@@ -80,7 +80,7 @@ describe("buildSongList", () => {
     }
   });
 
-  test("dedupes duplicate titles across selected albums (first occurrence wins)", () => {
+  test("dedupes duplicate titles across selected albums (newest album wins)", () => {
     const titleToAlbums = new Map();
     for (const a of ALBUMS) {
       for (const song of a.songs) {
@@ -120,14 +120,14 @@ describe("buildSongList", () => {
     assert.equal(new Set(keys).size, keys.length, "every result song's dedup key is unique");
   });
 
-  test("respects album sort order (year ascending) when emitting songs", () => {
+  test("emits songs in album year-descending order (newest first)", () => {
     const ids = new Set(ALBUMS.map((a) => a.id));
     const songs = buildSongList(ids);
-    assert.equal(songs[0].album, ALBUMS[0]);
+    assert.equal(songs[0].album, ALBUMS[ALBUMS.length - 1]);
     for (let i = 1; i < songs.length; i++) {
       assert.ok(
-        songs[i - 1].album.year <= songs[i].album.year,
-        `year order broken at index ${i}: ${songs[i - 1].album.year} > ${songs[i].album.year}`,
+        songs[i - 1].album.year >= songs[i].album.year,
+        `year order broken at index ${i}: ${songs[i - 1].album.year} < ${songs[i].album.year}`,
       );
     }
   });
