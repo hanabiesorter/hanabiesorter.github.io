@@ -251,5 +251,31 @@
         "translation": "HANABIE-chan's Theme"
       }
     ]
+  },
+  {
+    "id": "life-is-short",
+    "title": "命短し対する乙女よ",
+    "year": 2026,
+    "cover": "img/albums/youngladies.jpg",
+    "isSingle": true,
+    "songs": [
+      {
+        "title": "命短し対する乙女よ",
+        "translation": "Life Is Short, O Brave Girl"
+      }
+    ]
+  },
+  {
+    "id": "bari-bari-buddy",
+    "title": "Bari Bari Buddy",
+    "year": 2026,
+    "cover": "img/albums/baribaribuddy.jpg",
+    "isSingle": true,
+    "songs": [
+      {
+        "title": "バリバリBuddy",
+        "translation": "Bari Bari Buddy"
+      }
+    ]
   }
 ]
